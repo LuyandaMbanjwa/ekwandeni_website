@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ekwandeni POS | The Operating System for South African Liquor Retail</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Libre Baskerville, Domine, Almarai, Work Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&amp;family=Domine:wght@500;600;700&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Verbatim Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#e5ded8",
+            "inverse-on-surface": "#f1f1f0",
+            "secondary-fixed-dim": "#ccc5bf",
+            "surface-bright": "#f9f9f8",
+            "on-tertiary-container": "#402400",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#1f9cc8",
+            "tertiary": "#895100",
+            "on-background": "#1a1c1c",
+            "surface": "#f9f9f8",
+            "on-error-container": "#93000a",
+            "background": "#f9f9f8",
+            "editorial-accent": "#e80c2a",
+            "on-tertiary-fixed-variant": "#683d00",
+            "on-secondary": "#ffffff",
+            "canvas-dark": "#0c0a09",
+            "on-primary-fixed-variant": "#004d65",
+            "on-surface-variant": "#3e484e",
+            "surface-dim": "#dadad9",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#ffb86b",
+            "on-primary-fixed": "#001f2b",
+            "on-primary-container": "#002e3e",
+            "on-secondary-container": "#66625d",
+            "on-error": "#ffffff",
+            "secondary": "#625e59",
+            "outline-variant": "#bdc8cf",
+            "surface-container-low": "#f3f4f3",
+            "tertiary-fixed": "#ffdcbc",
+            "primary": "#006686",
+            "ink": "#18181b",
+            "primary-fixed": "#bfe8ff",
+            "tertiary-container": "#ca8126",
+            "surface-tint": "#006686",
+            "surface-container-highest": "#e2e2e2",
+            "on-secondary-fixed": "#1e1b17",
+            "surface-container": "#eeeeed",
+            "secondary-fixed": "#e8e1db",
+            "on-tertiary-fixed": "#2c1700",
+            "body-muted": "#57534e",
+            "inverse-primary": "#6ed2ff",
+            "surface-container-high": "#e8e8e7",
+            "error": "#ba1a1a",
+            "on-surface": "#1a1c1c",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#2f3130",
+            "outline": "#6e797f",
+            "on-secondary-fixed-variant": "#4a4641",
+            "surface-variant": "#e2e2e2",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#6ed2ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Almarai"],
+            "headline-lg": ["Libre Baskerville"],
+            "body-md": ["Almarai"],
+            "headline-lg-mobile": ["Domine"],
+            "body-lg": ["Almarai"],
+            "display-mobile": ["Domine"],
+            "headline-md": ["Domine"],
+            "display": ["Libre Baskerville"],
+            "label-sm": ["Work Sans"],
+            "body-sm": ["Work Sans"]
+          },
+          "fontSize": {
+            "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "700" }],
+            "headline-lg": ["44px", { "lineHeight": "50px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["30px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "body-lg": ["20px", { "lineHeight": "33px", "fontWeight": "400" }],
+            "display-mobile": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display": ["68px", { "lineHeight": "74px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary-container selection:text-white">
+<!-- ========================================================================= -->
+<!-- 1. SHARED COMPONENT: TopNavBar (Docked Full-Width Top Sticky)             -->
+<!-- ========================================================================= -->
+<header class="bg-surface/80 dark:bg-canvas-dark/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-outline-variant/30 dark:border-outline/20">
+<div class="max-w-[1440px] mx-auto px-gutter flex items-center justify-between h-20 w-full">
+<!-- Brand Logo / Identity -->
+<a class="flex items-center gap-2 group" href="#hero">
+<span class="font-headline-md text-headline-md tracking-tight text-ink dark:text-inverse-on-surface font-bold">
+          Ekwandeni POS
+        </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-container text-white font-label-sm text-[10px] tracking-wider uppercase font-bold">
+          ZA Liquor
+        </span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-ink dark:hover:text-surface-bright transition-colors font-label-md text-label-md" href="#about">
+          About
+        </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-ink dark:hover:text-surface-bright transition-colors font-label-md text-label-md" href="#features">
+          Features
+        </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-ink dark:hover:text-surface-bright transition-colors font-label-md text-label-md" href="#solutions">
+          Solutions
+        </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-ink dark:hover:text-surface-bright transition-colors font-label-md text-label-md" href="#faq">
+          FAQ
+        </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-ink dark:hover:text-surface-bright transition-colors font-label-md text-label-md" href="#contact">
+          Contact
+        </a>
+</nav>
+<!-- Trailing Action -->
+<div class="flex items-center gap-4">
+<a class="hidden sm:inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary-container text-white font-label-md text-label-md font-bold shadow-sm hover:brightness-105 active:scale-95 transition-all duration-150" href="#contact">
+          Book a demo
+        </a>
+<!-- Mobile Menu Trigger -->
+<button aria-label="Toggle navigation" class="md:hidden p-2 rounded-lg text-ink dark:text-inverse-on-surface" id="mobile-menu-btn">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Nav Flyout -->
+<div class="hidden md:hidden bg-surface-container-lowest border-t border-outline-variant/30 px-gutter py-6 flex-col space-y-4" id="mobile-nav">
+<a class="text-ink font-label-md text-label-md py-2" href="#about">About</a>
+<a class="text-ink font-label-md text-label-md py-2" href="#features">Features</a>
+<a class="text-ink font-label-md text-label-md py-2" href="#solutions">Solutions</a>
+<a class="text-ink font-label-md text-label-md py-2" href="#faq">FAQ</a>
+<a class="text-ink font-label-md text-label-md py-2" href="#contact">Contact</a>
+<a class="inline-flex w-full items-center justify-center py-3 rounded-full bg-primary-container text-white font-label-md text-label-md font-bold text-center" href="#contact">
+        Book a demo
+      </a>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- 2. HERO SECTION (Canvas Dark #0c0a09)                                     -->
+<!-- ========================================================================= -->
+<section class="relative bg-canvas-dark text-inverse-on-surface pt-20 pb-28 overflow-hidden" id="hero">
+<!-- Subtle radial ambient gradient backdrop -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(31,156,200,0.12)_0%,rgba(12,10,9,0)_60%)] pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-gutter relative z-10">
+<!-- Operational Tag -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest/10 border border-outline-variant/20 mb-8 backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed-dim">
+          Next-Gen Offline POS • Built in South Africa
+        </span>
+</div>
+<!-- Editorial Headline -->
+<div class="max-w-4xl">
+<h1 class="font-headline-lg text-headline-lg md:font-display md:text-display text-surface-container-lowest tracking-tight">
+          The operating system engineered for South African <span class="text-editorial-accent italic">liquor retail</span>.
+        </h1>
+<p class="mt-8 font-body-lg text-body-lg text-secondary-fixed-dim max-w-3xl leading-relaxed">
+          Master bottle deposits, manage empties returns, maintain trading during load shedding with 100% offline till sync, and automate excise compliance across multiple stores.
+        </p>
+<!-- CTAs -->
+<div class="mt-10 flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-primary-container text-white font-label-md text-label-md font-bold hover:brightness-110 active:scale-95 transition-all shadow-md" href="#contact">
+            Book a demo
+          </a>
+<a class="inline-flex items-center justify-center px-8 py-4 rounded-full border border-secondary-fixed-dim/40 text-inverse-on-surface hover:bg-surface-container-lowest/10 font-label-md text-label-md font-bold transition-all" href="#pillars">
+            Explore live demo store
+          </a>
+</div>
+</div>
+<!-- Operational Mini Ticker Ribbon -->
+<div class="mt-20 pt-8 border-t border-outline/20 grid grid-cols-2 md:grid-cols-4 gap-6 text-secondary-fixed-dim font-label-sm text-label-sm uppercase">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="check_circle">check_circle</span>
+<span>SAB RGB &amp; Craft Crate Audit</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="power_off">power_off</span>
+<span>Zero-Lag Load Shedding Mode</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="verified_user">verified_user</span>
+<span>SARS &amp; NLA Section 34 Compliant</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="sync">sync</span>
+<span>Dual-Drawer Cash Reconciliation</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. SPLIT SECTION: SPECIALIZED COMMERCE & 3D CRATE MODULE                 -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-surface-bright" id="about">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Left Editorial Copy (7 cols) -->
+<div class="lg:col-span-7 space-y-8">
+<div>
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm tracking-widest uppercase mb-4">
+              SPECIALIZED COMMERCE
+            </span>
+<h2 class="font-headline-lg text-headline-lg text-ink">
+              Engineered specifically for the complex friction of bottle stores.
+            </h2>
+<p class="mt-4 font-body-md text-body-md text-body-muted leading-relaxed">
+              Mainstream generic cloud point-of-sale systems fail inside South African liquor outlets. They lack mechanisms for physical glass deposit debits, fail completely when local cell towers lose battery backup during outages, and crumble under liquor board quota audits. Ekwandeni was built from the floor up inside active township taverns and suburban multi-lane liquor stores.
+            </p>
+</div>
+<!-- The 3 Critical Realities -->
+<div class="space-y-6 pt-2">
+<div class="flex items-start gap-4 p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm">
+<div class="w-12 h-12 rounded-xl bg-primary-container/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="recycling">recycling</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-ink text-lg">Bottle deposit &amp; return tracking</h3>
+<p class="mt-1 font-body-sm text-body-sm text-body-muted">
+                  Instant scanning of returnable glass (660ml / 750ml RGB quarts), full crates, and broken units. Empties auto-deduct from line items or emit encrypted return vouchers that balance cashier drawers automatically.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm">
+<div class="w-12 h-12 rounded-xl bg-primary-container/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="cloud_off">cloud_off</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-ink text-lg">Guaranteed offline trading (Load Shedding Proof)</h3>
+<p class="mt-1 font-body-sm text-body-sm text-body-muted">
+                  Till lanes run a localized SQLite daemon. When power cuts trigger tower dropouts, barcode scanners and Bluetooth thermal printers fire instantly with 0ms latency. Sync happens automatically when connectivity restores.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm">
+<div class="w-12 h-12 rounded-xl bg-primary-container/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="policy">policy</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-ink text-lg">Liquor board &amp; excise governance</h3>
+<p class="mt-1 font-body-sm text-body-sm text-body-muted">
+                  SARS-auditable purchase registries, automated per-customer litre quotas, weekend cut-off trading hours enforcement, and one-click compliance dossier exports for provincial liquor inspectors.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Framed 3D Panel (5 cols) -->
+<div class="lg:col-span-5">
+<div class="relative bg-canvas-dark rounded-3xl p-6 md:p-8 text-inverse-on-surface border border-outline/30 shadow-2xl">
+<!-- Header of Panel -->
+<div class="flex items-center justify-between border-b border-outline/20 pb-4 mb-6">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+<span class="font-label-sm text-label-sm tracking-widest text-primary-fixed uppercase">
+                  TILL #04 - OFFLINE ACTIVE
+                </span>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest/15 text-[11px] font-label-sm uppercase tracking-wider text-secondary-fixed-dim">
+                STAGE 4 READY
+              </span>
+</div>
+<!-- Visual Simulated Crate & Till Interface -->
+<div class="rounded-2xl bg-surface-container-lowest/5 border border-outline/20 p-5 space-y-4">
+<!-- Cart Items -->
+<div class="space-y-3 font-body-sm text-body-sm">
+<div class="flex justify-between items-center text-inverse-on-surface border-b border-outline/10 pb-2">
+<div>
+<p class="font-bold">Carling Black Label 750ml RGB</p>
+<p class="text-xs text-secondary-fixed-dim">12x Bottles @ R24.50</p>
+</div>
+<span class="font-bold">R 294.00</span>
+</div>
+<div class="flex justify-between items-center text-inverse-on-surface border-b border-outline/10 pb-2">
+<div>
+<p class="font-bold">Jameson Irish Whiskey 750ml</p>
+<p class="text-xs text-secondary-fixed-dim">1x Bottle (Excise Tag #9928)</p>
+</div>
+<span class="font-bold">R 389.00</span>
+</div>
+<!-- Live Deposit Deduction Chip -->
+<div class="flex justify-between items-center p-3 rounded-xl bg-primary-container/20 border border-primary-container/40 text-primary-fixed">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span>
+<div>
+<p class="font-bold text-xs uppercase tracking-wider">CRATE DEPOSIT REFUND</p>
+<p class="text-[11px] text-inverse-on-surface/80">1x Plastic Crate + 12 Empty Quarts</p>
+</div>
+</div>
+<span class="font-bold text-sm text-primary-fixed">- R 42.00</span>
+</div>
+</div>
+<!-- Cart Summary -->
+<div class="pt-4 border-t border-outline/20 space-y-2 text-xs text-secondary-fixed-dim">
+<div class="flex justify-between">
+<span>Subtotal</span>
+<span>R 641.00</span>
+</div>
+<div class="flex justify-between">
+<span>VAT (15%) Included</span>
+<span>R 83.61</span>
+</div>
+<div class="flex justify-between text-base font-bold text-surface-container-lowest pt-2 border-t border-outline/20">
+<span>Balance Due</span>
+<span class="text-primary-fixed">R 641.00</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Touch Trigger -->
+<div class="mt-6 grid grid-cols-2 gap-3">
+<button class="py-3.5 px-4 rounded-xl bg-primary-container text-white font-label-md text-xs font-bold uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all text-center">
+                CASH TENDER (F1)
+              </button>
+<button class="py-3.5 px-4 rounded-xl border border-secondary-fixed-dim/30 text-inverse-on-surface font-label-md text-xs font-bold uppercase tracking-wider hover:bg-surface-container-lowest/10 active:scale-95 transition-all text-center">
+                CARD / SPEEDPOINT
+              </button>
+</div>
+<!-- Technical Telemetry Footer -->
+<div class="mt-6 flex items-center justify-between text-[11px] text-secondary-fixed-dim font-body-sm pt-4 border-t border-outline/20">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-emerald-400" data-icon="database">database</span>
+                Local SQLite: 14 pending syncs
+              </span>
+<span>Till Engine v4.8.2</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. HIGH-IMPACT STAT ROW (3 Cards on Light Stone #fafaf9)                 -->
+<!-- ========================================================================= -->
+<section class="py-20 bg-surface border-y border-outline-variant/30">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/40 shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary font-headline-lg text-4xl md:text-5xl font-bold tracking-tight">
+            R18.4M+
+          </div>
+<h3 class="mt-3 font-headline-md text-headline-md text-ink text-xl">
+            Deposit ledger audited
+          </h3>
+<p class="mt-2 font-body-md text-body-md text-body-muted">
+            Returnable glass crates &amp; bottle deposits reconciled across client stores with zero till discrepancy or cashier shrink.
+          </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/40 shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary font-headline-lg text-4xl md:text-5xl font-bold tracking-tight">
+            99.98%
+          </div>
+<h3 class="mt-3 font-headline-md text-headline-md text-ink text-xl">
+            Offline uptime maintained
+          </h3>
+<p class="mt-2 font-body-md text-body-md text-body-muted">
+            Continuous checkout availability during national grid cuts via local-first high-speed desktop and mobile till daemons.
+          </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/40 shadow-sm hover:shadow-md transition-shadow">
+<div class="text-primary font-headline-lg text-4xl md:text-5xl font-bold tracking-tight">
+            3.2x
+          </div>
+<h3 class="mt-3 font-headline-md text-headline-md text-ink text-xl">
+            Faster checkout queues
+          </h3>
+<p class="mt-2 font-body-md text-body-md text-body-muted">
+            Dramatic reduction in peak Friday evening counter queues with instant barcode lookups and automatic crate deposit deductions.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5. THREE SOLUTION PILLARS                                                 -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-surface-bright" id="solutions">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm tracking-widest uppercase mb-4">
+          OPERATIONAL SCALE
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-ink">
+          Built for every format of South African alcohol retail.
+        </h2>
+<p class="mt-4 font-body-md text-body-md text-body-muted">
+          From single counter community taverns to multi-lane regional liquor chains and licensed bulk distributors.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Pillar 1: Neighborhood Bottle Stores -->
+<div class="rounded-3xl bg-surface-container-lowest border border-outline-variant/40 p-8 flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-ink mb-6">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+<div class="inline-block px-2.5 py-1 rounded-full bg-surface-container text-xs font-label-sm uppercase tracking-wider text-body-muted mb-3">
+              Independent Taverns &amp; Stores
+            </div>
+<h3 class="font-headline-md text-headline-md text-ink">
+              Neighborhood Bottle Stores
+            </h3>
+<p class="mt-3 font-body-md text-body-md text-body-muted">
+              Rapid counter speed, intuitive dual-till drawers, and friction-free empties processing for cash-heavy, fast-paced retail.
+            </p>
+<ul class="mt-6 space-y-3 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+                Split cash &amp; card tender in 2 taps
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+                Instant crate deposit vouchers
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+                Single-terminal offline support
+              </li>
+</ul>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/30">
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary font-bold hover:underline" href="#contact">
+<span>View store setup</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Pillar 2: Multi-Store Chains -->
+<div class="rounded-3xl bg-surface-container-lowest border-2 border-primary-container p-8 flex flex-col justify-between shadow-lg relative">
+<div class="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-primary-container text-white font-label-sm text-xs font-bold tracking-widest uppercase">
+            MOST POPULAR
+          </div>
+<div>
+<div class="w-12 h-12 rounded-2xl bg-primary-container/10 flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+</div>
+<div class="inline-block px-2.5 py-1 rounded-full bg-primary-fixed/30 text-xs font-label-sm uppercase tracking-wider text-primary font-bold mb-3">
+              Franchises &amp; Groups
+            </div>
+<h3 class="font-headline-md text-headline-md text-ink">
+              Multi-Store Chains
+            </h3>
+<p class="mt-3 font-body-md text-body-md text-body-muted">
+              Centralized head-office management. Push price changes, promotional combos, and supplier rebate tracking across 20+ branches simultaneously.
+            </p>
+<ul class="mt-6 space-y-3 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+                Central price list synchronizer
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+                Inter-branch stock transfers &amp; crates
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+                Automated brewery rebate auditing
+              </li>
+</ul>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/30">
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary font-bold hover:underline" href="#contact">
+<span>View multi-store config</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Pillar 3: Wholesale & Bulk Distributors -->
+<div class="rounded-3xl bg-surface-container-lowest border border-outline-variant/40 p-8 flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-ink mb-6">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="inline-block px-2.5 py-1 rounded-full bg-surface-container text-xs font-label-sm uppercase tracking-wider text-body-muted mb-3">
+              Commercial Licensees
+            </div>
+<h3 class="font-headline-md text-headline-md text-ink">
+              Wholesale &amp; Bulk Distributors
+            </h3>
+<p class="mt-3 font-body-md text-body-md text-body-muted">
+              High-volume pallet manifests, commercial licensee debtor ledgers, and automated volume-tiered price brackets.
+            </p>
+<ul class="mt-6 space-y-3 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+                Full pallet deposit accountability
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+                Debtor 30/60-day account billing
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+                Strict bulk liquor quota compliance
+              </li>
+</ul>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/30">
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary font-bold hover:underline" href="#contact">
+<span>View wholesale module</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 6. FEATURE ZIG-ZAG (Alternating Rows)                                    -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-surface border-t border-outline-variant/30" id="features">
+<div class="max-w-[1440px] mx-auto px-gutter space-y-28">
+<!-- Row 1: Empties & Deposit Ledger -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<div class="lg:col-span-6 space-y-6">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm tracking-widest uppercase">
+            PATENTED DEPOSIT FLOW
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-ink">
+            Automated Glass &amp; Crate Deposit Ledger.
+          </h2>
+<p class="font-body-md text-body-md text-body-muted">
+            Manual handwritten crate slips and tally notebooks create thousands of Rands in monthly store shrink. Ekwandeni treats returnable packaging like legal tender: scan crates, debit refunds against new purchases, and monitor your physical yard crate counts in real-time.
+          </p>
+<div class="pt-2 grid grid-cols-2 gap-4 font-body-sm text-body-sm">
+<div class="p-4 rounded-2xl bg-surface-container-lowest border border-outline-variant/30">
+<p class="font-bold text-ink">SAB &amp; Heineken Support</p>
+<p class="text-body-muted mt-1">Pre-calibrated deposit rates for 660ml, 750ml, and 24-bottle crates.</p>
+</div>
+<div class="p-4 rounded-2xl bg-surface-container-lowest border border-outline-variant/30">
+<p class="font-bold text-ink">Zero Cash Skimming</p>
+<p class="text-body-muted mt-1">Cashiers cannot issue payouts without supervisor key or scanned voucher.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6">
+<div class="bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/40 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/20 mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-bold text-ink font-headline-md text-lg">Empties Intake Screen</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">VOUCHER #6029</span>
+</div>
+<div class="space-y-3 font-body-sm">
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low">
+<div>
+<p class="font-bold text-ink">Standard Red Crate (24 Quarts)</p>
+<p class="text-xs text-body-muted">Barcode 600100234912 • Intake Yard A</p>
+</div>
+<span class="font-bold text-ink">R 42.00</span>
+</div>
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low">
+<div>
+<p class="font-bold text-ink">Loose RGB Bottles (750ml)</p>
+<p class="text-xs text-body-muted">6 Units @ R1.50 ea</p>
+</div>
+<span class="font-bold text-ink">R 9.00</span>
+</div>
+<div class="p-4 rounded-xl bg-primary-container/10 border border-primary-container/30 flex justify-between items-center mt-4">
+<div>
+<p class="text-xs font-bold text-primary uppercase">Total Credit Due to Customer</p>
+<p class="text-[11px] text-body-muted">Deducted directly from till total</p>
+</div>
+<span class="text-xl font-bold text-primary">R 51.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 2: Offline Till Engine (Reversed) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<div class="lg:col-span-6 order-2 lg:order-1">
+<div class="bg-canvas-dark text-inverse-on-surface rounded-3xl p-8 border border-outline/30 shadow-xl">
+<div class="flex items-center justify-between pb-4 border-b border-outline/20 mb-6">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-amber-400 animate-ping"></span>
+<span class="font-bold font-headline-md text-lg text-surface-container-lowest">Network Lost: Eskom Outage</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-amber-400/20 text-amber-300 text-xs font-bold uppercase">OFFLINE QUEUE</span>
+</div>
+<div class="p-4 rounded-2xl bg-surface-container-lowest/10 border border-outline/20 mb-4">
+<div class="flex items-center justify-between text-xs text-secondary-fixed-dim">
+<span>LOCAL DAEMON STATUS</span>
+<span class="text-emerald-400 font-bold">SCANNER ACTIVE</span>
+</div>
+<div class="mt-2 text-sm text-surface-container-lowest">
+                128 Transactions processed offline. 0 packets dropped. Local thermal printer firing via direct RS-232 / USB protocol.
+              </div>
+</div>
+<div class="space-y-2 text-xs font-mono text-secondary-fixed-dim bg-black/40 p-3 rounded-xl">
+<p>&gt; 18:42:10 Till #01 - Barcode scan: Savanna Dry 330ml 6-pack [OK]</p>
+<p>&gt; 18:42:12 Till #01 - Cash tender R120.00 | Drawer pulse [SENT]</p>
+<p>&gt; 18:42:15 SQLite commit ID #8849-B queued for cloud sync [SAVED]</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm tracking-widest uppercase">
+            LOAD SHEDDING DEFENSE
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-ink">
+            Unbreakable Offline Till Engine.
+          </h2>
+<p class="font-body-md text-body-md text-body-muted">
+            When Stage 6 load shedding knocks down the cell tower in your area, web-only browser POS systems freeze dead in their tracks while customers form agitated queues. Ekwandeni uses a localized C++ and SQLite offline engine embedded inside every terminal.
+          </p>
+<ul class="space-y-3 font-body-sm text-body-sm text-body-muted">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-base mt-1" data-icon="flash_on">flash_on</span>
+<span><strong>0ms Barcode Response:</strong> Every SKU, special price, and bottle deposit table is cached locally on device SSDs.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-base mt-1" data-icon="cloud_sync">cloud_sync</span>
+<span><strong>Conflict-Free Cloud Reconcile:</strong> When the power and LTE return, transactions sync seamlessly in the background with timestamp validation.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Row 3: National Liquor Authority & SARS Excise Compliance -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<div class="lg:col-span-6 space-y-6">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm tracking-widest uppercase">
+            REGULATORY GOVERNANCE
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-ink">
+            Liquor Authority &amp; SARS Excise Compliance.
+          </h2>
+<p class="font-body-md text-body-md text-body-muted">
+            Protect your multi-million Rand liquor license from suspension. Ekwandeni enforces mandatory South African compliance checkpoints right at the cash register and during delivery receipt.
+          </p>
+<div class="space-y-3 font-body-sm text-body-sm">
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center gap-3">
+<span class="material-symbols-outlined text-editorial-accent" data-icon="warning">warning</span>
+<span><strong>Bulk Limit Warning:</strong> Immediate lock when a customer exceeds maximum legal liters without valid wholesaler license proof.</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<span><strong>Automated Sunday Trading Lock:</strong> Tills automatically disable alcohol ring-up outside municipality-permitted licensing hours.</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6">
+<div class="bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/40 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/20 mb-6">
+<h4 class="font-headline-md text-headline-md text-ink text-base">Inspector Audit Dossier Export</h4>
+<span class="px-2.5 py-1 rounded bg-secondary-container text-on-secondary-container text-xs font-bold">SARS SECTION 34</span>
+</div>
+<div class="p-4 rounded-2xl bg-surface-container-low mb-4">
+<div class="flex justify-between items-center">
+<span class="font-bold text-sm text-ink">Western Cape Liquor Authority Audit</span>
+<span class="text-xs font-bold text-emerald-700">COMPLIANT</span>
+</div>
+<p class="text-xs text-body-muted mt-1">Generated: Today, 14:00 • Store #08 Stellenbosch</p>
+</div>
+<div class="space-y-2 text-xs font-body-sm">
+<div class="flex justify-between p-2.5 border-b border-outline-variant/20">
+<span class="text-body-muted">Spirit Volume Transacted (30-day)</span>
+<span class="font-bold text-ink">4,280.5 Litres</span>
+</div>
+<div class="flex justify-between p-2.5 border-b border-outline-variant/20">
+<span class="text-body-muted">Beer &amp; Flavored Alcoholic Quota</span>
+<span class="font-bold text-ink">18,940 Litres</span>
+</div>
+<div class="flex justify-between p-2.5">
+<span class="text-body-muted">SARS Excise Invoices Logged</span>
+<span class="font-bold text-ink">100% Reconciled (142 Invoices)</span>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<button class="w-full py-3 rounded-full bg-surface-container text-ink font-label-md text-xs font-bold hover:bg-surface-container-high transition-colors">
+                Export Signed PDF
+              </button>
+<button class="w-full py-3 rounded-full bg-primary-container text-white font-label-md text-xs font-bold hover:brightness-105 transition-all">
+                Send to Legal Rep
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 7. FAQ SECTION                                                            -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-surface-bright" id="faq">
+<div class="max-w-[1000px] mx-auto px-gutter">
+<div class="text-center mb-16">
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm tracking-widest uppercase mb-4">
+          FREQUENTLY ASKED QUESTIONS
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-ink">
+          Clear answers for store owners and managers.
+        </h2>
+</div>
+<div class="space-y-4">
+<!-- FAQ 1 -->
+<details class="group bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between cursor-pointer font-headline-md text-headline-md text-ink text-lg">
+<span>How does Ekwandeni handle SAB and craft brewery crate deposit changes?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="mt-4 font-body-md text-body-md text-body-muted pt-2 border-t border-outline-variant/20">
+            Deposit prices can be updated centrally in head office or locally by an authorized manager. When SAB increases crate deposit rates, you schedule the date and time; all tills adjust simultaneously. Furthermore, Ekwandeni tracks previous vs current deposit rates so older return slips are cashed out at the correct historical value.
+          </div>
+</details>
+<!-- FAQ 2 -->
+<details class="group bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between cursor-pointer font-headline-md text-headline-md text-ink text-lg">
+<span>What happens to card payments and till transactions if load shedding strikes mid-shift?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="mt-4 font-body-md text-body-md text-body-muted pt-2 border-t border-outline-variant/20">
+            Card speedpoints connect via fallback dual-SIM LTE or direct USB/Bluetooth tether to the till terminal. If mobile towers go down entirely, cash and verified account billing continue uninterrupted. Receipts print via battery-backed thermal printers, and the entire queue of transactions is saved encrypted to the local SQLite database.
+          </div>
+</details>
+<!-- FAQ 3 -->
+<details class="group bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between cursor-pointer font-headline-md text-headline-md text-ink text-lg">
+<span>Can we manage multiple stores with different pricing tiers across provinces?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="mt-4 font-body-md text-body-md text-body-muted pt-2 border-t border-outline-variant/20">
+            Yes. The multi-store cloud controller allows you to segment branches by pricing zone (e.g. Gauteng Central vs Western Cape Coast vs KZN Rural). Promotional bundles, local craft lines, and price tiers can be assigned per branch or grouped regionally while retaining centralized inventory oversight.
+          </div>
+</details>
+<!-- FAQ 4 -->
+<details class="group bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between cursor-pointer font-headline-md text-headline-md text-ink text-lg">
+<span>How long does migration from legacy systems like storeOS or GAAP take?</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-200 group-open:rotate-180" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</summary>
+<div class="mt-4 font-body-md text-body-md text-body-muted pt-2 border-t border-outline-variant/20">
+            We offer white-glove onboarding. Our South African technical team extracts your historical SKUs, barcodes, customer debtor ledgers, and supplier catalogs in 48 hours. Most stores run in parallel for a single shift and go fully live over a single weekend with zero downtime.
+          </div>
+</details>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 8. CONTACT & DEMO BOOKING FORM                                            -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-canvas-dark text-inverse-on-surface relative" id="contact">
+<div class="max-w-[1200px] mx-auto px-gutter relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 space-y-6">
+<span class="inline-block px-3 py-1 rounded-full bg-surface-container-lowest/10 border border-outline/20 text-primary-fixed font-label-sm text-label-sm tracking-widest uppercase">
+            LOCAL ON-SITE DEMOS
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-surface-container-lowest">
+            See Ekwandeni live on real till hardware in your store.
+          </h2>
+<p class="font-body-md text-body-md text-secondary-fixed-dim">
+            Our deployment specialists will bring a full demo crate-scanner and offline till unit directly to your counter in Johannesburg, Cape Town, Durban, or Pretoria.
+          </p>
+<div class="pt-4 space-y-3 font-body-sm text-body-sm text-secondary-fixed-dim">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="phone_in_talk">phone_in_talk</span>
+<span>+27 (011) 492-8000 (Mon–Sat 07:00–19:00)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="mail">mail</span>
+<span>deployments@ekwandeni-pos.co.za</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="pin_drop">pin_drop</span>
+<span>Offices in Rosebank (JHB) &amp; Foreshore (CPT)</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest text-ink rounded-3xl p-8 md:p-10 border border-outline-variant/30 shadow-2xl">
+<form class="space-y-5" onsubmit="event.preventDefault(); alert('Demo request received! An Ekwandeni retail specialist will call you in 15 minutes.');">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-md text-xs uppercase tracking-wider text-body-muted mb-2 font-bold">Full Name</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant/50 focus:border-primary-container focus:ring-1 focus:ring-primary-container text-body-md text-ink outline-none transition-all" placeholder="e.g. Sipho Ndlovu" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-xs uppercase tracking-wider text-body-muted mb-2 font-bold">Business / Store Name</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant/50 focus:border-primary-container focus:ring-1 focus:ring-primary-container text-body-md text-ink outline-none transition-all" placeholder="e.g. Metro Liquor Wholesalers" required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-md text-xs uppercase tracking-wider text-body-muted mb-2 font-bold">Province</label>
+<select class="w-full px-4 py-3 rounded-xl border border-outline-variant/50 focus:border-primary-container focus:ring-1 focus:ring-primary-container text-body-md text-ink outline-none transition-all bg-white">
+<option value="Gauteng">Gauteng</option>
+<option value="Western Cape">Western Cape</option>
+<option value="KwaZulu-Natal">KwaZulu-Natal</option>
+<option value="Eastern Cape">Eastern Cape</option>
+<option value="Free State">Free State</option>
+<option value="Mpumalanga">Mpumalanga</option>
+<option value="Limpopo">Limpopo</option>
+<option value="North West">North West</option>
+<option value="Northern Cape">Northern Cape</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-xs uppercase tracking-wider text-body-muted mb-2 font-bold">Number of Tills</label>
+<select class="w-full px-4 py-3 rounded-xl border border-outline-variant/50 focus:border-primary-container focus:ring-1 focus:ring-primary-container text-body-md text-ink outline-none transition-all bg-white">
+<option value="1">1 Till (Single counter)</option>
+<option value="2-4">2 – 4 Tills (Medium store)</option>
+<option value="5-10">5 – 10 Tills (Superstore)</option>
+<option value="10+">10+ Tills / Multiple Outlets</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-xs uppercase tracking-wider text-body-muted mb-2 font-bold">Direct Phone Number</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant/50 focus:border-primary-container focus:ring-1 focus:ring-primary-container text-body-md text-ink outline-none transition-all" placeholder="082 123 4567" required="" type="tel"/>
+</div>
+<div class="pt-2">
+<button class="w-full py-4 rounded-full bg-primary-container text-white font-label-md text-label-md font-bold hover:brightness-105 active:scale-95 transition-all shadow-md" type="submit">
+                  Schedule In-Person Till Demo
+                </button>
+</div>
+<p class="text-center font-body-sm text-[12px] text-body-muted mt-2">
+                No credit card required. Hardware units provided for on-site evaluation.
+              </p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 9. SHARED COMPONENT: Footer (Docked Full-Width)                           -->
+<!-- ========================================================================= -->
+<footer class="bg-canvas-dark text-inverse-on-surface docked full-width border-t border-outline/20">
+<div class="max-w-[1440px] mx-auto px-gutter py-16 flex flex-col gap-12 w-full">
+<!-- Top Row: Logo & Mission -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div>
+<span class="font-headline-md text-headline-md text-surface-container-lowest font-bold">
+            Ekwandeni POS
+          </span>
+<p class="mt-2 text-body-sm font-body-sm text-secondary-fixed-dim max-w-lg">
+            The mission-critical operating system built specifically for South African liquor retail operations, township commercial license holders, and multi-lane chains.
+          </p>
+</div>
+<!-- Compliance & Regulatory Badge -->
+<div class="p-4 rounded-2xl bg-surface-container-lowest/5 border border-outline/20 text-xs text-secondary-fixed-dim">
+<p class="font-bold text-surface-container-lowest mb-1">National Liquor Norms &amp; Standards</p>
+<p>Certified for provincial registry recording and SARS excise ledger compatibility.</p>
+</div>
+</div>
+<!-- Links Grid from JSON (Immutable Labels) -->
+<div class="pt-8 border-t border-outline/10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+<div>
+<a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors text-body-sm font-body-sm hover:text-primary-fixed hover:underline duration-200" href="#about">
+            Compliance &amp; Liquor Acts
+          </a>
+</div>
+<div>
+<a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors text-body-sm font-body-sm hover:text-primary-fixed hover:underline duration-200" href="#about">
+            Empties &amp; Deposits Audit
+          </a>
+</div>
+<div>
+<a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors text-body-sm font-body-sm hover:text-primary-fixed hover:underline duration-200" href="#features">
+            Offline Till Engine
+          </a>
+</div>
+<div>
+<a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors text-body-sm font-body-sm hover:text-primary-fixed hover:underline duration-200" href="#">
+            Privacy Policy
+          </a>
+</div>
+<div>
+<a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors text-body-sm font-body-sm hover:text-primary-fixed hover:underline duration-200" href="#">
+            Terms of Service
+          </a>
+</div>
+<div>
+<a class="text-secondary-fixed-dim hover:text-surface-bright transition-colors text-body-sm font-body-sm hover:text-primary-fixed hover:underline duration-200" href="#solutions">
+            Wholesale Portal
+          </a>
+</div>
+</div>
+<!-- Copyright Statement (Verbatim JSON String) -->
+<div class="pt-8 border-t border-outline/10 flex flex-col md:flex-row justify-between items-center text-body-sm font-body-sm text-secondary-fixed-dim opacity-80 hover:opacity-100 transition-opacity gap-4">
+<span>© 2024 Ekwandeni POS Systems (Pty) Ltd. Built for South African Retail Liquor Operations. All rights reserved.</span>
+<div class="flex items-center gap-6">
+<span class="hover:text-primary-fixed transition-colors cursor-pointer">Support: 0800 359 263</span>
+<span class="hover:text-primary-fixed transition-colors cursor-pointer">System Status: All Tills Operational</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Micro-interaction Script for Mobile Nav Toggle -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-nav');
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          menu.classList.toggle('hidden');
+          menu.classList.toggle('flex');
+        });
+      }
+    });
+  </script>
+</body></html>

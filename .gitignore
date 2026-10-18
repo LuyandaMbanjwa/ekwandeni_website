@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+*.local
+
+# Prefer STITCH_API_KEY env; keep local key out of git if you rotate
+.cursor/mcp.json

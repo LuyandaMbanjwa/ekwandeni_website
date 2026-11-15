@@ -7,6 +7,7 @@ import { Hero } from './components/Hero';
 import { OneOfAKind } from './components/oneOfAKind/OneOfAKind';
 import { Navbar } from './components/Navbar';
 import { SolutionPillars } from './components/SolutionPillars';
+import { SiteAssistant } from './components/SiteAssistant';
 import { StatsBand } from './components/StatsBand';
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <SiteAssistant />
     </>
   );
 }

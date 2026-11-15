@@ -10,7 +10,7 @@ export function Audience() {
             {audience.title}
           </h2>
         </FadeInUp>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {audience.segments.map((seg, i) => (
             <FadeInUp key={seg.name} delay={i * 100}>
               <article className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">

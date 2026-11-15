@@ -20,6 +20,16 @@ npm run preview
 
 Static output is in `dist/`.
 
+## Site assistant
+
+A floating **Ekwandeni Guide** chat (bottom-right) answers visitor questions using searchable copy from `src/content/site.ts` (FAQs, features, pillars, and overview text). No API keys or server calls—suitable for static deploy on Vercel.
+
+- Widget copy and knowledge indexing: `src/content/assistant.ts`
+- Search scoring: `src/lib/assistantSearch.ts`
+- UI: `src/components/SiteAssistant.tsx`
+
+To upgrade later to a real LLM, add a Vercel serverless `/api/chat` route and swap the reply logic in `SiteAssistant` (reuse the same knowledge chunks for the system prompt).
+
 ## Google Stitch (via `.cursor/mcp.json`)
 
 Stitch MCP is configured in [`.cursor/mcp.json`](.cursor/mcp.json). See [`.cursor/README.md`](.cursor/README.md) to enable it in Cursor.

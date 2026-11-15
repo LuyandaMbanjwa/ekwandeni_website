@@ -37,6 +37,45 @@ export function FeatureMockupPanel({ type }: { type: FeatureMockup }) {
     );
   }
 
+  if (type === 'accounting') {
+    const lines = [
+      { label: 'Shift close — cash in safe', amount: '+ R 8,420', tone: 'text-emerald-600' },
+      { label: 'Supplier PO — Windhoek', amount: '- R 2,150', tone: 'text-rose-600' },
+      { label: 'Payroll — weekend staff', amount: '- R 1,200', tone: 'text-rose-600' },
+    ];
+    return (
+      <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-lg">
+        <div className="mb-4 flex items-center justify-between border-b border-stone-100 pb-3">
+          <span className="text-xs font-bold uppercase tracking-widest text-stone-400">Store cash ledger</span>
+          <span className="text-xs font-medium text-stone-500">This week</span>
+        </div>
+        <div className="rounded-xl bg-gradient-to-br from-brand-600 to-brand-500 p-4 text-white">
+          <p className="text-xs font-medium text-brand-100">Cash on hand (system)</p>
+          <p className="mt-1 text-2xl font-bold tabular-nums">R 14,280</p>
+          <p className="mt-1 text-[10px] text-brand-100/90">Aligned with till + ledger movements</p>
+        </div>
+        <ul className="mt-4 space-y-2">
+          {lines.map((line) => (
+            <li key={line.label} className="flex items-center justify-between gap-3 rounded-lg bg-stone-50 px-3 py-2 text-sm">
+              <span className="text-stone-700">{line.label}</span>
+              <span className={`shrink-0 font-bold tabular-nums ${line.tone}`}>{line.amount}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 grid grid-cols-2 gap-2 text-center text-[10px]">
+          <div className="rounded-lg border border-stone-100 bg-stone-50 p-2">
+            <p className="font-bold text-stone-900">Expenses</p>
+            <p className="text-stone-500">R 3.4k MTD</p>
+          </div>
+          <div className="rounded-lg border border-stone-100 bg-stone-50 p-2">
+            <p className="font-bold text-stone-900">Payroll</p>
+            <p className="text-stone-500">R 6.8k MTD</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (type === 'reports') {
     const bars = [40, 65, 52, 78, 88, 72, 95, 68, 82, 58];
     return (

@@ -22,16 +22,32 @@ Static output is in `dist/`.
 
 ## Deploy on Vercel
 
-1. Import the Git repo (root = this folder — `package.json` at the repository root).
-2. Framework preset **Vite** (or let [`vercel.json`](vercel.json) set `buildCommand` / `outputDirectory`).
-3. **Output Directory** must be `dist` (not `public`). If the dashboard overrides this, clear it or match `vercel.json`.
-4. Redeploy after any change to build settings.
+Use **one** of these setups (mixing them causes “No Output Directory named dist” errors):
 
-If you see **404 NOT_FOUND** on the site URL:
+### Recommended: static output (`dist`)
 
-- Check the latest deployment **Build** log — a failed build leaves nothing to serve.
-- Confirm **Root Directory** is empty (or `.`) when the repo *is* `ekwandeni_website`, not a parent monorepo folder.
-- Confirm **Output Directory** = `dist`.
+In **Project → Settings → Build & Development**:
+
+| Setting | Value |
+|--------|--------|
+| Framework Preset | **Other** (not Vite) |
+| Build Command | `npm run build` (or leave empty — [`vercel.json`](vercel.json) sets it) |
+| Output Directory | `dist` |
+| Install Command | `npm install` |
+| Root Directory | *(blank — repo root is this project)* |
+
+[`vercel.json`](vercel.json) intentionally omits `"framework": "vite"`. The Vite preset uses Vercel’s Build Output API and often **does not leave a `dist` folder on disk**, which breaks when Output Directory is set to `dist`.
+
+Redeploy after changing settings. The build log should show `tsc -b`, `vite build`, and files under `dist/`.
+
+### If you prefer Framework Preset = Vite
+
+Clear **Output Directory** in the dashboard (leave blank) and remove `outputDirectory` from `vercel.json`. Do not set both Vite preset and `dist` as output.
+
+### Troubleshooting
+
+- **“No Output Directory named dist”** — Framework is Vite while Output Directory is `dist`. Switch to **Other** + `dist`, or use Vite with blank output (see above).
+- **404 on the URL** — Latest deployment build must be green; confirm Root Directory points at this repo (where `package.json` and `vite.config.ts` live).
 
 Static files such as `/privacy-policy.html` and `/assets/*` are served as files; other paths rewrite to `index.html` for the SPA.
 
